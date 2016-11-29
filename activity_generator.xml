@@ -1,0 +1,138 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/generator"
+        android:text="Generator"
+        android:textSize="30sp"
+        android:layout_marginTop="0sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/question1"
+        android:hint="Are you Coeliac / Gluten Free?"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70sp"/>
+
+        <RadioGroup
+            android:id="@+id/coeliac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal"/>
+
+            <RadioButton
+                android:id="@+id/radio_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100sp"
+                android:text="Yes"/>
+
+            <RadioButton
+                android:id="@+id/radio_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:layout_alignTop="@+id/radio_yes"
+                android:layout_alignStart="@+id/generator" />
+
+    <TextView
+        android:id="@+id/question2"
+        android:hint="How long do you want the menu to run?"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150sp"/>
+
+        <RadioGroup
+            android:id="@+id/menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal"/>
+
+            <RadioButton
+                android:id="@+id/radio_week1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="180sp"
+                android:text="1 Week"/>
+
+            <RadioButton
+                android:id="@+id/radio_week2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 weeks"
+                android:layout_alignTop="@+id/radio_week1"
+                android:layout_alignStart="@+id/generator" />
+
+            <RadioButton
+                android:id="@+id/radio_month1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 Month"
+                android:layout_alignTop="@+id/radio_week2"
+                android:layout_toEndOf="@+id/generator" />
+
+    <TextView
+        android:id="@+id/question3"
+        android:hint="Any Allergens?"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240sp"/>
+
+        <CheckBox
+            android:id="@+id/check1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question3"
+            android:text="Eggs"/>
+
+        <CheckBox
+            android:id="@+id/check2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Milk"
+            android:layout_below="@+id/question3"
+            android:layout_toEndOf="@+id/radio_week1" />
+
+        <CheckBox
+            android:id="@+id/check3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nuts"
+            android:layout_below="@+id/question3"
+            android:layout_toEndOf="@+id/radio_no" />
+
+        <CheckBox
+            android:id="@+id/check4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shellfish"
+            android:layout_below="@+id/question3"
+            android:layout_alignEnd="@+id/radio_month1" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gen_button"
+        android:layout_marginTop="400sp"
+        android:text="Generate Menu"/>
+
+
+</RelativeLayout>
+
