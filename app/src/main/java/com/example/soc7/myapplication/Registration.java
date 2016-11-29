@@ -1,54 +1,65 @@
 package com.example.soc7.myapplication;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class Registration extends Activity
 {
     private static Button back;
     private static Button register;
+    EditText USER_NAME, USER_PASS, F_NAME, L_NAME, EMAIL, AGE;
+    String f_name;
+    String l_name;
+    String age;
+    String email;
+    String password;
+    String Username;
+    Context ctx = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        goBack();
-        Register();
-    }
 
-    public void goBack()
-    {
+        F_NAME = (EditText) findViewById(R.id.f_name);
+        L_NAME = (EditText) findViewById(R.id.l_name);
+        EMAIL = (EditText) findViewById(R.id.email);
+        USER_NAME = (EditText) findViewById(R.id.Username);
+        USER_PASS = (EditText) findViewById(R.id.password);
+        AGE = (EditText) findViewById(R.id.age);
+
+        register = (Button) findViewById(R.id.reg_button);
         back = (Button)findViewById(R.id.back1);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(Registration.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-    }
-
-    public void Register()
-    {
-        register = (Button)findViewById(R.id.reg_button);
-
-        register.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
             {
-                Intent intent = new Intent(Registration.this, Generator.class);
-                startActivity(intent);
+                Username = USER_NAME.getText().toString();
+                password = USER_PASS.getText().toString();
+                f_name = F_NAME.getText().toString();
+                l_name = L_NAME.getText().toString();
+                email = EMAIL.getText().toString();
+                age = AGE.getText().toString();
+
+                DatabaseOp DB = new DatabaseOp(ctx);
+                DB.insertInformation(DB, Username, password,f_name,l_name, email, age);
+                Toast.makeText(getBaseContext(), "Registration sucess", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

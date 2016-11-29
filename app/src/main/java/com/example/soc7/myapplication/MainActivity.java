@@ -43,7 +43,7 @@ public class MainActivity extends Activity
                 if(user.getText().toString().equals("user")&& password.getText().toString().equals("pass"))
                 {
                     Toast.makeText(getApplicationContext(),"Login sucessful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, Generator.class);
+                    Intent intent = new Intent(MainActivity.this, weekly_plan.class);
                     startActivity(intent);
                 }
                 else

@@ -28,6 +28,7 @@
         android:layout_marginTop="70sp"/>
 
         <RadioGroup
+            android:id="@+id/coeliac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="1"
@@ -38,8 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100sp"
-                android:text="Yes"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="Yes"/>
 
             <RadioButton
                 android:id="@+id/radio_no"
@@ -58,6 +58,7 @@
         android:layout_marginTop="150sp"/>
 
         <RadioGroup
+            android:id="@+id/menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="1"
@@ -68,8 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="180sp"
-                android:text="1 Week"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="1 Week"/>
 
             <RadioButton
                 android:id="@+id/radio_week2"
@@ -133,12 +133,6 @@
         android:layout_marginTop="400sp"
         android:text="Generate Menu"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/back2"
-        android:layout_alignBaseline="@+id/register"
-        android:text="Back"/>
 
 </RelativeLayout>
 
