@@ -1,15 +1,19 @@
+/**
+ ************************************************************************************************
+ * Name: Andrea Panetta
+ * Student No: C13312461
+ * Description:
+ */
 package com.example.soc7.myapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.Editable;
 import android.util.Log;
 
-/**
- * Created by AndreaPanetta on 29/11/2016.
- */
 
 public class DatabaseOp extends SQLiteOpenHelper
 {
@@ -47,5 +51,13 @@ public class DatabaseOp extends SQLiteOpenHelper
         long x = SQ.insert(TData.TInfo.TABLE_NAME, null, cv);
         Log.d("Database Operations", "One row inserted");
 
+    }
+
+    public Cursor getInformation(DatabaseOp dop)
+    {
+        SQLiteDatabase SQ = dop.getReadableDatabase();
+        String[] coloumns = {TData.TInfo.USER_NAME, TData.TInfo.USER_PASS};
+        Cursor CR = SQ.query(TData.TInfo.TABLE_NAME, coloumns ,null, null,null, null, null);
+        return CR;
     }
 }

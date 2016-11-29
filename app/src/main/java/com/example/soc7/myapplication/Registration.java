@@ -1,3 +1,13 @@
+/**
+ ************************************************************************************************
+ * Name: Andrea Panetta
+ * Student No: C13312461
+ * Description: Registration - When brought to the Register screen, the user enters their details.
+ *                             When completed, they are brought to the Generator Screen, where
+ *                             they can give any details about their everyday diet.
+ ************************************************************************************************
+ */
+
 package com.example.soc7.myapplication;
 
 import android.app.Activity;
@@ -51,11 +61,26 @@ public class Registration extends Activity
                 l_name = L_NAME.getText().toString();
                 email = EMAIL.getText().toString();
                 age = AGE.getText().toString();
+                Bundle b = new Bundle();
 
                 DatabaseOp DB = new DatabaseOp(ctx);
                 DB.insertInformation(DB, Username, password,f_name,l_name, email, age);
                 Toast.makeText(getBaseContext(), "Registration sucess", Toast.LENGTH_LONG).show();
-                finish();
+                Intent intent = new Intent(Registration.this, Generator.class);
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Bundle b = new Bundle();
+                Intent intent = new Intent(Registration.this, MainActivity.class);
+                intent.putExtras(b);
+                startActivity(intent);
             }
         });
     }
